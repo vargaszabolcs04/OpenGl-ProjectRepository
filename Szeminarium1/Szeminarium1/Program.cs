@@ -75,13 +75,18 @@ namespace Szeminarium1
             Gl.CompileShader(fshader);
 
             program = Gl.CreateProgram();
-            Gl.AttachShader(program, vshader);
+            //Gl.AttachShader(program, vshader);
             Gl.AttachShader(program, fshader);
             Gl.LinkProgram(program);
             Gl.DetachShader(program, vshader);
             Gl.DetachShader(program, fshader);
             Gl.DeleteShader(vshader);
             Gl.DeleteShader(fshader);
+
+            if(Gl.GetError() != GLEnum.NoError)
+            {
+                Console.WriteLine(Gl.GetError());
+            }
 
             Gl.GetProgram(program, GLEnum.LinkStatus, out var status);
             if (status == 0)
@@ -127,15 +132,10 @@ namespace Szeminarium1
             };
 
             uint vertices = Gl.GenBuffer();
-            //Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
+            Gl.BindBuffer(GLEnum.ArrayBuffer, vertices);
             Gl.BufferData(GLEnum.ArrayBuffer, (ReadOnlySpan<float>)vertexArray.AsSpan(), GLEnum.StaticDraw);
             Gl.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 0, null);
             Gl.EnableVertexAttribArray(0);
-
-            if(Gl.GetError() != GLEnum.NoError)
-            {
-                Console.WriteLine(Gl.GetError());
-            }
 
             uint colors = Gl.GenBuffer();
             Gl.BindBuffer(GLEnum.ArrayBuffer, colors);
