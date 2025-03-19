@@ -108,22 +108,55 @@ namespace Szeminarium1
             Gl.BindVertexArray(vao);
 
             float[] vertexArray = new float[] {
-                -0.5f, -0.5f, 0.0f,
-                +0.5f, -0.5f, 0.0f,
-                 0.0f, +0.5f, 0.0f,
-                 1f, 1f, 0f
+                //1. negyzet
+                -0.55f, -0.25f, 0.0f,
+                -0.05f, -0.60f, 0.0f,
+                -0.55f,  0.25f, 0.0f,
+                -0.05f,  0.05f, 0.0f,
+
+                 //2. negyzet
+                 -0.05f, -0.60f, 0.0f,
+                 0.45f, -0.25f, 0.0f,
+                 -0.05f,  0.05f, 0.0f,
+                 0.45f,  0.25f, 0.0f,
+
+                 //3. negyzet
+                 -0.05f,  0.05f, 0.0f,
+                 0.45f,  0.25f, 0.0f,
+                 -0.55f,  0.25f, 0.0f,
+                 -0.05f,  0.35f, 0.0f
             };
 
             float[] colorArray = new float[] {
+                //1.negyzet
                 1.0f, 0.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f,
+                1.0f, 0.0f, 0.0f, 1.0f,
+
+                //2.negyzet
                 0.0f, 1.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.0f, 1.0f,
+                0.0f, 1.0f, 0.0f, 1.0f,
+
+                //3.negyzet
                 0.0f, 0.0f, 1.0f, 1.0f,
-                1.0f, 0.0f, 0.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
+                0.0f, 0.0f, 1.0f, 1.0f,
             };
 
             uint[] indexArray = new uint[] { 
+                //1.negyzet
                 0, 1, 2,
-                2, 1, 3
+                2, 1, 3,
+                //2.negyzet
+                4,5,6,
+                6,5,7,
+                //3.negyzet
+                8,9,10,
+                10,9,11
             };
 
             uint vertices = Gl.GenBuffer();
